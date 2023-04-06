@@ -92,12 +92,33 @@
                                 <p><em>Time Period: May 2022 - August 2022</em></p>
                             </div>
                         </div>
-                    </div>
+
+                        <div class="col-lg-6" data-aos="fade-up">
+                            <h1>URL Shortener</h1>
+                            <form id="urlForm">
+                                <input type="text" id="longUrlInput" placeholder="Enter a long URL">
+                                <button type="submit">Shorten</button>
+                            </form>
+                            <p id="shortUrlOutput"></p>
+
+                            <script>
+                                // Add event listener for form submission
+                                document.getElementById('urlForm').addEventListener('submit', async function (event) {
+                                    event.preventDefault();
+                                    const longUrl = document.getElementById('longUrlInput').value;
+                                    const response = await fetch('/shorten', {
+                                        method: 'POST',
+                                        body: new FormData(event.target)
+                                    });
+                                    const shortUrl = await response.text();
+                                    document.getElementById('shortUrlOutput').textContent = shortUrl;
+                                });
+                            </script>
+                        </div>
                 </div>
             </section>
         </main>
         <!-- Link to index.html -->
-        <a href="index.html">Go back to home page</a>
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
         <!-- Vendor JS Files -->
