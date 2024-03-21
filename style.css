@@ -1,4 +1,12 @@
-﻿.chat-box {
+/*
+Theme Name: Blue
+Theme URI: 
+Author: Lucas
+Description: Wordpress Theme
+Version: 1.0
+*/
+
+.chat-box {
     position: fixed;
     bottom: 0;
     right: 0;
